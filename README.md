@@ -4,19 +4,34 @@
 
 ## 使用方法
 
-```python
-from pr_description_generator import PRDescriptionGenerator
+### 通过命令行运行
 
-generator = PRDescriptionGenerator(
-    repo_path="/path/to/repo",
-    source_branch="feature-branch",
-    target_branch="main", 
-    openai_base_url="https://api.openai.com/v1",
-    openai_api_key="your-api-key"
-)
+您可以通过命令行直接运行 `main` 函数来生成PR描述。以下是示例命令：
 
-description = generator.generate()
-print(description)
+```bash
+python -m pr_description_generator.generator /path/to/repo feature-branch main https://api.openai.com/v1 your-openai-api-key
+```
+
+### 参数说明
+
+- **/path/to/repo**: 您的本地Git仓库的路径。
+- **feature-branch**: 您想要比较的源分支名称。
+- **main**: 您想要比较的目标分支名称。
+- **https://api.openai.com/v1**: OpenAI API的基础URL。
+- **your-openai-api-key**: 您的OpenAI API密钥。
+
+### 输出
+
+运行上述命令后，程序将输出生成的PR描述信息，包括PR标题、类型、描述和变更说明。例如：
+
+```plaintext
+PR Title: Add new feature to improve performance
+PR Type: feature
+PR Description: This pull request introduces a new feature that significantly improves the performance of the application by optimizing the data processing algorithm.
+PR Changes: 
+- Refactored the data processing module
+- Improved algorithm efficiency
+- Updated unit tests to cover new changes
 ```
 
 ## 输入参数
@@ -32,7 +47,7 @@ print(description)
 在使用此工具之前，请确保安装以下Python包：
 
 ```bash
-pip install gitpython pyyaml requests
+pip install -r requirements.txt
 ```
 
 ## 功能说明
