@@ -11,7 +11,7 @@ class OpenAIClient:
             base_url: OpenAI API基础URL
             api_key: OpenAI API密钥
         """
-        self.base_url = base_url.rstrip("/")
+        self.base_url = base_url
         self.api_key = api_key
         
     def chat_completion(self, 
@@ -30,7 +30,7 @@ class OpenAIClient:
         Returns:
             AI生成的响应文本
         """
-        url = f"{self.base_url}/v1/chat/completions"
+        url = f"{self.base_url}"
         
         headers = {
             "Content-Type": "application/json",
@@ -61,4 +61,4 @@ class OpenAIClient:
         
         response.raise_for_status()
         
-        return response.json()["choices"][0]["message"]["content"] 
+        return response.json()["choices"][0]["message"]["content"]

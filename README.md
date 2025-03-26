@@ -9,15 +9,18 @@
 您可以通过命令行直接运行 `main` 函数来生成PR描述。以下是示例命令：
 
 ```bash
-python -m pr_description_generator.generator /path/to/repo feature-branch main https://api.openai.com/v1 your-openai-api-key
+python generator.py /path/to/repo \
+         source-branch target-branch \
+         https://api.openai.com/v1/chat/completions \
+         your-openai-api-key
 ```
 
 ### 参数说明
 
 - **/path/to/repo**: 您的本地Git仓库的路径。
-- **feature-branch**: 您想要比较的源分支名称。
-- **main**: 您想要比较的目标分支名称。
-- **https://api.openai.com/v1**: OpenAI API的基础URL。
+- **source-branch**: 您想要比较的源分支名称。
+- **target-branch**: 您想要比较的目标分支名称。
+- **https://api.openai.com/v1/chat/completions**: OpenAI API的基础URL。
 - **your-openai-api-key**: 您的OpenAI API密钥。
 
 ### 输出
